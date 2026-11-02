@@ -15,6 +15,6 @@ services:
       MYSQL_DATABASE: isurdb
     volumes:
       - db_data:/var/lib/mysql
-
+      
 volumes:
   db_data:
