@@ -1,0 +1,25 @@
+name: CI ISUR Deployment
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar código
+        uses: actions/checkout@v3
+
+      - name: Construir imagen Docker
+        run: docker build -t isur-deployment-app .
+
+      - name: Validar Docker Compose
+        run: docker compose config
+
+      - name: Levantar servicios
+        run: docker compose up -d
+
+      - name: Verificar contenedores
+        run: docker ps
