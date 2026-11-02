@@ -1,3 +1,4 @@
+# Especifica la versión del formato de Docker Compose que estamos utilizando
 version: '3.8'
 
 services:
@@ -15,6 +16,6 @@ services:
       MYSQL_DATABASE: isurdb
     volumes:
       - db_data:/var/lib/mysql
-      
+
 volumes:
   db_data:
